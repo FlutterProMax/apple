@@ -71,7 +71,7 @@ class _HomeState extends State<Home> {
           builder: (context) => Savat()
         )
       );
-    } else{
+    } else if(tanlangan_index == 3){
       Navigator.push(
         context,
         MaterialPageRoute(

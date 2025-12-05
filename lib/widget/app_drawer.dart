@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:apple/services/prefservice.dart';
 import 'package:flutter/material.dart';
 
@@ -63,11 +65,12 @@ class _AppDrawerState extends State<AppDrawer> {
             accountEmail: Text(gmail),
             currentAccountPicture: CircleAvatar(
               backgroundColor: Colors.deepPurpleAccent,
-              backgroundImage: NetworkImage(
-                "https://yt3.googleusercontent.com/u0EycS1j4qYl-y27MHUyeJMVjE5eTazFmOPYAmXbl2Rd605PPFQAUfDgyJsLAaavJfZLmwvt=s900-c-k-c0x00ffffff-no-rj",
+              backgroundImage: profilePhoto == null
+                  ? AssetImage("assets/profile.jpg")
+              as ImageProvider
+                  : FileImage(File(profilePhoto!)),
               ),
             ),
-          ),
           Expanded(
             child: ListView.builder(
               itemCount: menues.length,

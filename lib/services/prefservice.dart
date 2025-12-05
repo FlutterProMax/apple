@@ -35,6 +35,14 @@ class PrefService{
     return data;
   }
 
+  Future<String> getPass() async {
+    final miya = await SharedPreferences.getInstance();
+
+    String pass = await miya.getString('pass') ?? '1111';
+
+    return pass;
+  }
+
   Future<bool> checkRegistration() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getBool('isRegistered') ?? false;
