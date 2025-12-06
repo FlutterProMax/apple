@@ -43,7 +43,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               flexibleSpace: FlexibleSpaceBar(
                 background: Hero(
                   tag: widget.product["name"],
-                  child: Image.network(
+                  child: Image.asset(
                     widget.product["image"],
                     fit: BoxFit.cover,
                     errorBuilder: (_, _, _) => Icon(Icons.image),

@@ -70,10 +70,10 @@ class _ProfileState extends State<Profile> {
 
         return Padding(
           padding: EdgeInsets.only(
-            bottom: 12,
+            bottom: 342,
             left: 18,
             right: 18,
-            top: 22
+            top: 42
           ),
 
           child: Column(

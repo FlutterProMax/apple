@@ -30,9 +30,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  path_provider: ^2.1.4
+  url_launcher: ^6.3.1
+  share_plus: ^12.0.1
   shared_preferences: ^2.3.2
   image_picker: ^1.1.1
   smooth_page_indicator: ^1.1.0
+  webview_flutter: ^4.13.0
+  google_maps_flutter: ^2.1.7
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -83,6 +88,7 @@ flutter:
      - assets/p4.jpg
      - assets/p5.jpg
      - assets/p6.jpg
+     - assets/logo.png
 
 flutter_launcher_icons:
   android: true

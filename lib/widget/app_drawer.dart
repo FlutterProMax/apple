@@ -1,7 +1,15 @@
 import 'dart:io';
-
+import 'package:apple/pages/faq.dart';
+import 'package:apple/pages/notification.dart';
+import 'package:apple/pages/profile.dart';
+import 'package:apple/pages/search.dart';
+import 'package:apple/pages/settings.dart';
 import 'package:apple/services/prefservice.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 
 class AppDrawer extends StatefulWidget {
@@ -51,6 +59,29 @@ class _AppDrawerState extends State<AppDrawer> {
     {"icon": Icons.settings, "title": "Sozlamar"},
   ];
 
+
+  Future<void> shareApk() async {
+    try {
+      final byteData = await rootBundle.load('assets/app-release.apk');
+
+      final tempDir = await getTemporaryDirectory();
+      final tempFile = File('${tempDir.path}/app-release.apk');
+      await tempFile.writeAsBytes(byteData.buffer.asUint8List(), flush: true);
+
+      final xfile = XFile(tempFile.path);
+      await Share.share(
+        "Yangi ilovamizni yuklab oling!\n\nILOVA TEZ ORADA PLAY MARKETDA CHIQADI",
+      );
+
+      if (await tempFile.exists()) {
+        await tempFile.delete();
+      }
+    } catch (e) {
+      print('Share error: $e');
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -82,6 +113,49 @@ class _AppDrawerState extends State<AppDrawer> {
                       borderRadius: BorderRadius.circular(15),
                       onTap: (){
                         Navigator.pop(context);
+                        if(index == 0){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Notifications()
+                            )
+                          );
+                        }
+                        else if(index == 1){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => FAQ()
+                            )
+                          );
+                        }
+                        else if(index == 2){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SearchPage()
+                            )
+                          );
+                        }
+                        else if(index == 3){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Profile()
+                            )
+                          );
+                        }
+                        else if(index == 4){
+                          shareApk();
+                        }
+                        else if(index == 5){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Settings()
+                            )
+                          );
+                        }
                         // davomi bor
                       },
                       child: Container(
