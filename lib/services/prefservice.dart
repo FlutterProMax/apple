@@ -15,11 +15,21 @@ class PrefService{
   Future<void> saveData(String name, String phone, String pass, String gmail) async {
     final miya = await SharedPreferences.getInstance();
 
-    await miya.setString('name', name);
-    await miya.setString('phone', phone);
-    await miya.setString('pass', pass);
-    await miya.setString('gmail', gmail);
-    await miya.setBool('isRegistered', true);
+    if(pass == "" || pass == " " || pass.isEmpty){
+      await miya.setString('name', name);
+      await miya.setString('phone', phone);
+      // await miya.setString('pass', pass);
+      await miya.setString('gmail', gmail);
+      await miya.setBool('isRegistered', true);
+    } else{
+      await miya.setString('name', name);
+      await miya.setString('phone', phone);
+      await miya.setString('pass', pass);
+      await miya.setString('gmail', gmail);
+      await miya.setBool('isRegistered', true);
+    }
+
+
 
 
   }

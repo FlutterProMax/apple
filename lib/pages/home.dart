@@ -21,31 +21,31 @@ class _HomeState extends State<Home> {
 
   final List<Map<String, String>> stories = [
     {
-      "image" : "https://flutter-3.vercel.app/Elshodbek.jpg",
+      "image" : "assets/Elshodbek.jpg",
       "name" : "Elshodbek"
     },
     {
-      "image" : "https://flutter-3.vercel.app/Ziyodulloh.jpg",
+      "image" : "assets/Ziyodulloh.jpg",
       "name" : "Ziyodullo"
     },
     {
-      "image" : "https://flutter-3.vercel.app/Sanjarbek.jpg",
+      "image" : "assets/Sanjarbek.jpg",
       "name" : "Sanjarbek"
     },
     {
-      "image" : "https://flutter-3.vercel.app/Ibrohimjon.jpg",
+      "image" : "assets/Ibrohimjon.jpg",
       "name" : "Ibrohimjon"
     },
     {
-      "image" : "https://flutter-3.vercel.app/Abduvali.jpg",
+      "image" : "assets/Abduvali.jpg",
       "name" : "Abduvali"
     },
     {
-      "image" : "https://flutter-3.vercel.app/Yahyobek.jpg",
+      "image" : "assets/Yahyobek.jpg",
       "name" : "Yahyobek"
     },
     {
-      "image" : "https://flutter-3.vercel.app/Behruzbek.jpg",
+      "image" : "assets/Behruzbek.jpg",
       "name" : "Beckie"
     }
   ];
@@ -121,7 +121,7 @@ class _HomeState extends State<Home> {
                               child: CircleAvatar(
                                 radius: 25,
                                 backgroundColor: Colors.pinkAccent,
-                                backgroundImage: NetworkImage(story["image"]!),
+                                backgroundImage: AssetImage(story["image"]!),
                               ),
                             ),
                             SizedBox(

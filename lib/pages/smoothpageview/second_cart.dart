@@ -25,9 +25,9 @@ class SecondCart extends StatelessWidget {
                   topLeft: Radius.circular(20),
                   topRight: Radius.circular(20)
                 ),
-                child: Image.network(
+                child: Image.asset(
                   fit: BoxFit.cover,
-                  "https://i.ytimg.com/vi/sWzLabnddoc/maxresdefault.jpg",
+                  "assets/second_cart_photo.jpg",
                   height: 220,
                   width: 330,
                 ),

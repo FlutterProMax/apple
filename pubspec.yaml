@@ -66,6 +66,23 @@ flutter:
   assets:
      - assets/apple3.jpg
      - assets/profile.jpg
+     - assets/first_cart_photo.jpg
+     - assets/Sanjarbek.jpg
+     - assets/Behruzbek.jpg
+     - assets/Ziyodulloh.jpg
+     - assets/Elshodbek.jpg
+     - assets/Ibrohimjon.jpg
+     - assets/Abduvali.jpg
+     - assets/Yahyobek.jpg
+     - assets/fourth_cart_photo.jpeg
+     - assets/second_cart_photo.jpg
+     - assets/third_cart_photo.jpg
+     - assets/p1.jpg
+     - assets/p2.jpg
+     - assets/p3.jpeg
+     - assets/p4.jpg
+     - assets/p5.jpg
+     - assets/p6.jpg
 
 flutter_launcher_icons:
   android: true

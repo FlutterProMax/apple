@@ -112,15 +112,20 @@ class _ProfileState extends State<Profile> {
 
               ElevatedButton(
                   onPressed: (){
-                    PrefService service = PrefService();
-                    dynamic password = service.getPass();
-                    service.saveData(_nameController.text, _phoneController.text, password, _emailController.text);
+                    if(_nameController.text.isEmpty || _emailController.text.isEmpty || _phoneController.text.isEmpty){
+                      // ekran yopiladi
+                      Navigator.pop(context);
+                    } else{
+                      PrefService service = PrefService();
+                      service.saveData(_nameController.text, _phoneController.text, "", _emailController.text);
 
-                    // ekran yopiladi
-                    Navigator.pop(context);
+                      // ekran yopiladi
+                      Navigator.pop(context);
 
-                    // ma'lumotlar qayta yuklanadi
-                    get();
+                      // ma'lumotlar qayta yuklanadi
+                      get();
+                    }
+
                   },
                   child: Text(
                     "Saqlash",

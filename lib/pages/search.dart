@@ -27,37 +27,37 @@ class _SearchPageState extends State<SearchPage> {
     {
       "name": "iPhone 17 Pro",
       "price": 1299,
-      "image": "https://cdn.auchan.fr/media/A0220250828000443221PRIMARY_2048x2048/B2CD/?format=rw&amp;quality=75&amp;width=200&amp;height=200",
+      "image": "assets/p1.jpg",
       "rating": 4.9
     },
     {
       "name": "Macbook Pro",
       "price": 2999,
-      "image": "https://i.pinimg.com/736x/34/88/4d/34884d4de9f6ec3e1e66f81274cf94aa.jpg",
+      "image": "assets/p2.jpg",
       "rating": 5.0,
     },
     {
       "name": "Samsung S26 Ultra",
       "price": 1999,
-      "image": "https://avatars.mds.yandex.net/get-mpic/16454321/2a00000197472dc40e03a27deac36b373533/orig",
+      "image": "assets/p3.jpeg",
       "rating": 4.3,
     },
     {
       "name": "Apple Watch",
       "price": 5999,
-      "image": "https://i.pinimg.com/736x/18/ab/03/18ab03a8971eeb66c5f149b306c9d3a7.jpg",
+      "image": "assets/p4.jpg",
       "rating": 5.0
     },
     {
       "name": "Iphone 17 IPad",
       "price": 999,
-      "image": "https://i.pinimg.com/736x/78/c0/75/78c075305f27d16bd14e2074346eb2c2.jpg",
+      "image": "assets/p5.jpg",
       "rating": 2.5
     },
     {
       "name": "iMac Pro",
       "price": 9999,
-      "image": "https://i.pinimg.com/736x/ae/26/3e/ae263ec84dfc6b33576500fa63685609.jpg",
+      "image": "assets/p6.jpg",
       "rating": 4.7
     },
   ];
@@ -109,6 +109,8 @@ class _SearchPageState extends State<SearchPage> {
     }
   }
 
+  int? hoveredIndex;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -153,82 +155,86 @@ class _SearchPageState extends State<SearchPage> {
           itemBuilder: (context, index){
             final product = filtered[index];
 
-            return InkWell(
-              borderRadius: BorderRadius.circular(20),
-              onTap: (){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ProductDetails(product: product)
+            return Padding(
+              padding: const EdgeInsets.fromLTRB(5, 0, 5, 7),
+              child: InkWell(
+                // onHover: _hover,
+                borderRadius: BorderRadius.circular(20),
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ProductDetails(product: product)
+                    ),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 6,
+                        color: Colors.black12,
+                        offset: Offset(0, 3)
+                      ),
+                    ],
                   ),
-                );
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 6,
-                      color: Colors.black12,
-                      offset: Offset(0, 3)
-                    ),
-                  ],
-                ),
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(15),
-                        child: Image.network(
-                          product["image"],
-                          fit: BoxFit.cover,
-                          errorBuilder: (_, _, _) => Icon(Icons.image),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 10,),
-
-                    Text(
-                      product["name"],
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15
-                      ),
-                      maxLines: 2,
-                      textAlign: TextAlign.center,
-                    ),
-
-                    Text(
-                      "\$${product["price"]}",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.deepPurple,
-                        fontWeight: FontWeight.bold
-                      ),
-                    ),
-                    SizedBox(height: 10,),
-                    
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.star,
-                          color: Colors.amber,
-                          size:   17,
-                        ),
-                        SizedBox(width: 5,),
-                        Text(
-                          product["rating"].toString(),
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold
+                  padding: EdgeInsets.all(10),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: Image.asset(
+                            product["image"],
+                            fit: BoxFit.cover,
+                            errorBuilder: (_, _, _) => Icon(Icons.image),
                           ),
-                        )
-                      ],
-                    )
-                  ],
+                        ),
+                      ),
+                      SizedBox(height: 10,),
+
+                      Text(
+                        product["name"],
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15
+                        ),
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
+                      ),
+
+                      Text(
+                        "\$${product["price"]}",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.deepPurple,
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                      SizedBox(height: 10,),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                            size:   17,
+                          ),
+                          SizedBox(width: 5,),
+                          Text(
+                            product["rating"].toString(),
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             );

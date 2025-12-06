@@ -25,9 +25,9 @@ class FirstCart extends StatelessWidget {
                   topLeft: Radius.circular(20), 
                   topRight: Radius.circular(20)
                 ),
-                child: Image.network(
+                child: Image.asset(
                   fit: BoxFit.cover,
-                  "https://i.pinimg.com/originals/28/28/bf/2828bf749fb6f2eb3ce0b43a530ce3e9.jpg",
+                  "assets/first_cart_photo.jpg",
                   height: 220,
                 ),
               ),

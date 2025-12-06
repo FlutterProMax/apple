@@ -25,9 +25,9 @@ class FourthCart extends StatelessWidget {
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20)
                 ),
-                child: Image.network(
+                child: Image.asset(
                   fit: BoxFit.fill,
-                  "https://avatars.mds.yandex.net/i?id=23c56a5f83bc52c6830eaa354c9e7989701be116-4411542-images-thumbs&n=13",
+                  "assets/fourth_cart_photo.jpeg",
                   height: 220,
                   width: 330,
                 ),

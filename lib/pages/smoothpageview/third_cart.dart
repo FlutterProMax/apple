@@ -25,9 +25,9 @@ class ThirdCart extends StatelessWidget {
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20)
                 ),
-                child: Image.network(
+                child: Image.asset(
                   fit: BoxFit.cover,
-                  "https://img.freepik.com/premium-vector/100-off-discount-creative-composition-3d-sale-symbol-with-decorative-objects-golden-confetti-podium-gift-box-sale-banner-poster-vector-illustration_3482-6393.jpg",
+                  "assets/third_cart_photo.jpg",
                   height: 220,
                   width: 330,
                 ),
